@@ -69,3 +69,17 @@ class FibonacciHeap(Heap):
         Fusionne deux arbres
         """
         pass
+
+heap1 = {
+    0: [2, 4, 3],
+    1: [6],
+    2: [6, 7],
+    3: [6, 9, 7],
+    4: [3]
+}
+
+heap = FibonacciHeap()
+heap.insert(3)
+heap.insert(5)
+
+print(heap)
