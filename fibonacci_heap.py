@@ -83,10 +83,13 @@ class FibonacciHeap(Heap):
         """
         Supprime et retourne la valeur minimum dans l'arbre
         """
-        self.old_min = self.min_node
+        # self.old_min = self.min_node
+        # self.root_list.remove(self.min_node)
+        # self.min_node = self.find_min()
+        # return self.old_min
         self.root_list.remove(self.min_node)
         self.min_node = self.find_min()
-        return self.old_min
+        return self.min_node
 
     def merge(self, fibonnaci_heap: Heap) -> None:
         """
@@ -131,5 +134,9 @@ heap2.print_root_list()
 heap.print_min_node()
 
 heap.insert(3)
+
+heap.print_min_node()
+
+print(heap.delete_min())
 
 heap.print_min_node()
