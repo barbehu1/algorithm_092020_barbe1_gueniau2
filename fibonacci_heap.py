@@ -63,7 +63,6 @@ class FibonacciHeap(Heap):
         Ajoute une valeur dans l'arbre
         """
         new_node = self.Node(value, left=None, right=None)
-        print(new_node.value)
         if self.root_list is None:
             self.root_list.append(new_node.value)
             self.min_node = new_node.value
@@ -77,7 +76,7 @@ class FibonacciHeap(Heap):
         """
         Retourne la valeur minimum dans l'arbre
         """
-        
+        print(min(self.root_list))
 
     def delete_min(self) -> int:
         """
@@ -88,11 +87,26 @@ class FibonacciHeap(Heap):
         """
         Fusionne deux arbres
         """
+        
 
     def print_heap(self):
-       print(self.root_list)
+        """
+        Affiche la liste de nodes à la racine.
+        """
+        print(self.root_list)
+
+    def print_total_nodes(self):
+        """
+        Affiche le nombre de nodes qu'a un arbre.
+        """
+        print("L'arbre a", self.total_nodes, "nodes.")
 
 heap = FibonacciHeap()
 heap.insert(48)
 heap.insert(34)
+heap.print_total_nodes()
 heap.print_heap()
+heap.find_min()
+
+heap2 = FibonacciHeap()
+heap2.insert(25)
