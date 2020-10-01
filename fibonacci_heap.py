@@ -46,30 +46,30 @@ class FibonacciHeap(Heap):
     et en français : https://fr.wikipedia.org/wiki/Tas_de_Fibonacci#Implémentation_des_opérations
     """
 
+    def __init__(self):
+        self.root_list = []
+        self.min_node = 0
+        self.total_nodes = 0
+
     class Node:
 
         def __init__(self, value, left, right):
             self.value = value
             self.left = left
             self.right = right
-    
-    root_list = []
-    min_node = 0
-
-    total_nodes = 0
 
     def insert(self, value: int) -> None:
         """
         Ajoute une valeur dans l'arbre
         """
-        new_node = self.Node(value, left=None, right=None)
+        self.new_node = self.Node(value, left=None, right=None)
         if self.root_list is None:
-            self.root_list.append(new_node.value)
-            self.min_node = new_node.value
+            self.root_list.append(self.new_node.value)
+            self.min_node = self.new_node.value
         else:
-            self.root_list.append(new_node.value)
-            if new_node.value < self.min_node:
-                self.min_node = new_node.value
+            self.root_list.append(self.new_node.value)
+            if self.new_node.value < self.min_node:
+                self.min_node = self.new_node.value
         self.total_nodes = self.total_nodes + 1
 
     def find_min(self) -> int:
@@ -113,12 +113,9 @@ class FibonacciHeap(Heap):
 heap = FibonacciHeap()
 heap.insert(48)
 heap.insert(34)
-heap.print_total_nodes()
 heap.print_root_list()
-heap.print_min_node()
 
 heap2 = FibonacciHeap()
 heap2.insert(25)
 heap2.print_root_list()
 
-heap.print_root_list()
