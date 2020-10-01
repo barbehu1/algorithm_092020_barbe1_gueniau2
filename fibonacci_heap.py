@@ -50,6 +50,7 @@ class FibonacciHeap(Heap):
         self.root_list = []
         self.min_node = 0
         self.total_nodes = 0
+        self.old_min = 0
 
     class Node:
 
@@ -63,7 +64,7 @@ class FibonacciHeap(Heap):
         Ajoute une valeur dans l'arbre
         """
         self.new_node = self.Node(value, left=None, right=None)
-        if self.root_list is None:
+        if len(self.root_list)==0:
             self.root_list.append(self.new_node.value)
             self.min_node = self.new_node.value
         else:
@@ -82,6 +83,10 @@ class FibonacciHeap(Heap):
         """
         Supprime et retourne la valeur minimum dans l'arbre
         """
+        self.old_min = self.min_node
+        self.root_list.remove(self.min_node)
+        self.min_node = self.find_min()
+        return self.old_min
 
     def merge(self, fibonnaci_heap: Heap) -> None:
         """
@@ -122,3 +127,9 @@ heap2.print_root_list()
 heap.merge(heap2)
 heap.print_root_list()
 heap2.print_root_list()
+
+heap.print_min_node()
+
+heap.insert(3)
+
+heap.print_min_node()
