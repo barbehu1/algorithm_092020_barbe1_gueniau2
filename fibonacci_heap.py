@@ -119,3 +119,6 @@ heap2 = FibonacciHeap()
 heap2.insert(25)
 heap2.print_root_list()
 
+heap.merge(heap2)
+heap.print_root_list()
+heap2.print_root_list()
